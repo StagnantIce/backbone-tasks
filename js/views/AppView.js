@@ -60,10 +60,12 @@ define(['./TaskListView', './TaskEditView', '../text!../templates/app.html'], fu
 	    },
 	    delete: function() {
 	    	var collection = this.listView.collection;
+	    	var models = [];
 	    	$('.select:checked').each(function(){
 	    		var index = $(this).attr('index');
-	    		collection.remove(collection.at(index));
+	    		models.push(collection.at(index));
 	    	});
+	    	collection.remove(models);
 	    	this.listView.render();
 	    }
 	});
